@@ -1,0 +1,3 @@
+#!/bin/bash
+
+export BENCHMARK_HOME=$(pwd)
