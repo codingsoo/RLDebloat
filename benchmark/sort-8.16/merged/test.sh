@@ -99,7 +99,7 @@ function undesired() {
     if [[ $opt == "-k" ]]; then
       { timeout -k 0.1 0.1 $REDUCED_BIN $opt notexist; } >&$LOG
       err=$?
-      outputcheckerror "invalid number at field start: invalid count at start of \‘notexist\’" && exit 1
+      outputcheckerror "invalid number at field start: invalid count at start of 'notexist'" && exit 1
       crash $err && exit 1
     elif [[ $opt == '-T' || $opt == '--help' ]]; then
       continue
@@ -114,7 +114,7 @@ function undesired() {
     elif [[ $opt == '-t' ]]; then
       { timeout -k 0.1 0.1 $REDUCED_BIN $opt notexist; } >&$LOG
       err=$?
-      outputcheckerror "multi-character tab \‘notexist\’" && exit 1
+      outputcheckerror "multi-character tab 'notexist'" && exit 1
       crash $err && exit 1
     else
       { timeout -k 0.1 0.1 $REDUCED_BIN $opt notexist; } >&$LOG
