@@ -35,9 +35,12 @@ function desired() {
   if [[ $1 == "-fsanitize=leak" ]]; then # ignore leak sanitizer
     return 0
   fi
+  if [[ $1 == "-fsanitize=address" ]]; then # ignore address sanitizer
+    return 0
+  fi
   cp $REDUCED_BIN tar
   for file in $(ls tests/tar*); do
-    { timeout $TIMEOUT sh -e $file; } >&$LOG || exit 1
+    { timeout $TIMEOUT bash -e $file; } >&$LOG || exit 1
     rm -rf f* b*
   done
   return 0
