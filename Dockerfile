@@ -9,6 +9,7 @@ RUN apt-get install -y libmlpack-dev libpcre3-dev
 RUN ln -s /usr/bin/clang-8 /usr/bin/clang && ln -s /usr/bin/llvm-config-8 /usr/bin/llvm-config
 
 COPY chisel /tmp/chisel
+COPY benchmark /bench
 RUN mkdir -p /tmp/chisel/build && cd /tmp/chisel/build && CXX=clang cmake .. && make
 
 ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/tmp/chisel/build/bin
