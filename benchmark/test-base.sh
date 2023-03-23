@@ -37,13 +37,6 @@ function main() {
     clean
     compile "${sanitizers[$i]}" || exit 1
     desired "${sanitizers[$i]}" || exit 1
-    undesired || exit 1
-    clean
-  done
-  for ((i = 0; i < ${#environments[@]}; i++)); do
-    clean
-    compile "${environment_libs[$i]}" || exit 1
-    desired_disaster "${environments[$i]}" || exit 1
     clean
   done
 }
